@@ -14,4 +14,14 @@
 Route::get('/', function () {
     return view('welcome');
 });
-Route::resource('shares', 'ShareController');
+// Route::resource('shares', 'ShareController');
+Route::get('getshares', array('as'=>'shares.index', 'uses'=>'ShareController@index'));  
+
+// Route::post('postshares', 'ShareController@store');
+// Route::delete('deleteshare', 'ShareController@destroy');
+Route::delete('deleteshare/{id}',['as'=>'shares.destroy','uses'=>'ShareController@destroy']);    
+Route::get('editshare/{id}', ['as'=>'shares.edit', 'uses'=>'ShareController@edit']);  
+Route::put('update/{id}', ['as'=>'shares.update', 'uses'=>'ShareController@update']);  
+Route::get('createshare', ['as'=>'shares.create', 'uses'=>'ShareController@create']);  
+Route::post('postshares', ['as'=>'shares.store', 'uses'=>'ShareController@store']);  
+

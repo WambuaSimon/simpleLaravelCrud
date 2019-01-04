@@ -91,9 +91,10 @@ class ShareController extends Controller
         $share->share_name = $request->get('share_name');
         $share->share_price = $request->get('share_price');
         $share->share_qty = $request->get('share_qty');
+    
         $share->save();
   
-        return redirect('/shares')->with('success', 'Stock has been updated');
+        return redirect()->route('shares.index')->with('success', 'Stock has been updated');
 
     }
 
@@ -107,6 +108,7 @@ class ShareController extends Controller
     {
         $share = Share::find($id);
         $share->delete();
-        return redirect('/shares')->with('success','Stock has been deleted Successfully');
+        return redirect()->route('shares.index')
+        ->with('success','Stock has been deleted');
     }
 }

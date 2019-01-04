@@ -21,7 +21,7 @@
       </div><br />
     @endif
       <form method="post" action="{{ route('shares.update', $share->id) }}">
-        @method('PATCH')
+        @method('PUT')
         @csrf
         <div class="form-group">
           <label for="name">Share Name:</label>
